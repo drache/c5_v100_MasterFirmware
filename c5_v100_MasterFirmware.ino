@@ -1,11 +1,15 @@
-// C5 v1.0.4 - PRODUCTION FIRMWARE
+// C5 v1.0.5 - BETA FIRMWARE
 // ----------------------------------------------------------------------------
-// Version:     1.0.4 [Tested]
-// Date:        Jan 9, 2013
+// Version:     1.0.5 [UNTESTED]
+// Date:        Feb 20, 2013
 // Authors:     John and Nick @ JDS Labs, Inc.
+// Modified:	Casey <ctrepp@gmail.com>
 // Requires:    Arduino Bootloader, Arduino 1.0.1
 // License:     Creative Commons Attribution-ShareAlike 3.0 Unported
 //              http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+//
+// Comments:	I have made changes that should work, however I do not have a test unit so be aware.
+//		I have added a minResumeAttenuation value most useful for IEM users. ~Casey
 
 #include <Wire.h>
 #include <EEPROM.h>
@@ -30,6 +34,7 @@ byte lastStoredGainState = 0;                     // Last stored EEPROM gain
 byte attenuation = 62;                            // Attenuation value of volume potentiometer gangs. Initially set to minimum volume.
 byte tempattenuation = 0;                         // Holds attenuation value for second pot bitwise operation
 byte lastStoredAttenuation = 0;                   // Last stored EEPROM volume
+byte minResumeAttenuation = 30;			  // Minimum value Attenuation can be set on boot. 
 float BattVoltage = 5;                            // Temp variable to read battery voltage
 float LowVoltageThreshold = 3.51;                 // 'Low' hysteresis threshold (voltage at which low battery flashing begins). 3.50V should yield 45-90 minute warning.
 float HighVoltageThreshold = 3.55;                // 'High' hysteresis threshold
@@ -86,6 +91,10 @@ void setup()
   if(attenuation > 63)
   {
     attenuation = 62;
+  }
+  if(attenuation < minResumeAttenuation)
+  {
+    attenuation = minResumeAttenuation;
   }
   changeVolume();
   

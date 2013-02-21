@@ -8,7 +8,7 @@ AUTHORS:
 John & Nick @jdslabs
 www.jdslabs.com
 MODIFIED:
-Casey Trepp <ctrepp@gmail.com>
+Casey <ctrepp@gmail.com>
 
 REQUIRES:	
 Arduino Bootloader, Arduino 1.0.1

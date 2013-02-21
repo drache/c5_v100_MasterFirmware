@@ -2,7 +2,7 @@ c5_v100_MasterFirmware_v105
 =========================
 
 Beta Firmware for @jdslabs C5 Headphone Amplifier - Controls DS1882 digital potentiometer
-This has not been tested, be aware!
+I do not have a C5 yet for testing, use caution! Changes *should* work.
 
 AUTHORS:  	
 John & Nick @jdslabs

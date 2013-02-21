@@ -8,7 +8,7 @@
 // License:     Creative Commons Attribution-ShareAlike 3.0 Unported
 //              http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
 //
-// Comments:	I have made changes that should work, however I do not have a test unit so be aware.
+// Comments:	I have made changes that should work, however I do not have a test unit so use caution!
 //		I have added a minResumeAttenuation value most useful for IEM users. ~Casey
 
 #include <Wire.h>
